@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<center><h1>Restaurants</h1></center>
+
+<div class="container">
+<table>
+  <thead>
+    <tr>
+      <th style="padding-right: 20px">Name</th>
+      <th style="padding-right: 20px">Address</th>
+      <th style="padding-right: 20px">Phone number</th>
+      <th style="padding-right: 20px">Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+</div>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td style="padding-right: 20px"><%= restaurant.name %></td>
+        <td style="padding-right: 20px"><%= restaurant.address %></td>
+        <td style="padding-right: 20px"><%= restaurant.phone_number %></td>
+        <td style="padding-right: 20px"><%= restaurant.category %></td>
+
+
+        <td>
+          <%= link_to restaurant_path(restaurant) do %>
+            <i class="fa fa-eye" aria-hidden="true" style="padding-right: 20px"></i>
+          <% end %>
+        </td>
+
+        <td>
+          <%= link_to edit_restaurant_path(restaurant) do %>
+            <i class="fa fa-pencil" aria-hidden="true" style="padding-right: 20px"></i>
+          <% end %>
+        </td>
+
+        <td>
+          <%= link_to restaurant, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa fa-trash-o" aria-hidden="true" style="padding-right: 20px"></i>
+          <% end %>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Restaurant', new_restaurant_path %>

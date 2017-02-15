@@ -1,0 +1,17 @@
+<h1>Review#index</h1>
+<p>Find me in app/views/review/index.html.erb</p>
+
+
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">Add a Review</h1>
+
+    <div class="col-xs-12 col-md-offset-3 col-md-6">
+      <%= simple_form_for [@restaurant, @review] do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
